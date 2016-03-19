@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Clubs</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Shortname</th>
+      <th>Clubname</th>
+      <th>Clubdesc</th>
+      <th>Clubweblink</th>
+      <th>Videolink</th>
+      <th>Clubquote</th>
+      <th>Imagelink</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_update_clubs.each do |admin_update_club| %>
+      <tr>
+        <td><%= admin_update_club.shortname %></td>
+        <td><%= admin_update_club.clubname %></td>
+        <td><%= admin_update_club.clubdesc %></td>
+        <td><%= admin_update_club.clubweblink %></td>
+        <td><%= admin_update_club.videolink %></td>
+        <td><%= admin_update_club.clubquote %></td>
+        <td><%= admin_update_club.imagelink %></td>
+        <td><%= link_to 'Show', admin_update_club %></td>
+        <td><%= link_to 'Edit', edit_admin_update_club_path(admin_update_club) %></td>
+        <td><%= link_to 'Destroy', admin_update_club, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Club', new_admin_update_club_path %>
+

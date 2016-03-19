@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  clubname: MyString
+  clubdesc: MyText
+  clubweblink: MyText
+  videolink: MyText
+  clubquote: MyText
+
+two:
+  clubname: MyString
+  clubdesc: MyText
+  clubweblink: MyText
+  videolink: MyText
+  clubquote: MyText

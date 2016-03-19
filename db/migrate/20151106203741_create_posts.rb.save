@@ -1,0 +1,23 @@
+ class CreatePosts < ActiveRecord::Migration
+  def change
+    create_table :posts do |t|
+   
+
+	t.eventtitle :text, :notnull
+	t.date :string,	:notnull
+	t.time :string,	:notnull
+	t.image1 :text	
+	t.image2 :text
+	t.image3 :text
+	t.image4 :text
+	t.video1 :text
+	t.video2 :text
+	t.file1 :text
+	t.file2 :text
+	t.file3 :text
+	t.shortdesc :text, 	:notnull
+	t.longdesc :text,	:notnull
+	t.category :string,	:notnull
+ end
+  end
+end

@@ -1,0 +1,2 @@
+module Bitotsav::VolunteersHelper
+end

@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    
+    
+    <title><%= session[:username] %> Admin Page | BIT Deets</title>
+
+   
+    <script type="text/javascript" src="/jquery-1.11.3.min.js"></script>
+
+   
+  </head>
+  <body>
+
+       <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="navbar">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Navigation</span>
+                        <span class"icon-bar"></span> 
+                        <span class"icon-bar"></span> 
+                        <span class"icon-bar"></span>   
+                    </button>
+
+                    <a class="navbar-brand" href="/"><img src="/img/deets-new.png" alt="brand" width="50px" height="auto"></a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="/">Home<span class="sr-only"></span></a></li>
+                        
+                        <li class="dropdown">
+                            <a id="club-list" class="dropdown-toggle" data-toggle="dropdown">Clubs</a>
+                            <div class="club-layout">
+                                <div class="col-2">
+                                    <h5>Clubs in BIT</h5>
+                                </div>
+
+                            <div class="clear"></div>
+
+                            <div class="col-1">
+                                <div class="list-caption">Technical</div>
+                                <ul>
+                                    <li><a href="/acm">ACM</a></li>
+                                    <li><a href="/edc">EDC</a></li>
+                                    <li><a href="/firebolt">Firebolt</a></li>
+                                    <li><a href="/ieee">IEEE</a></li>
+                                    <li><a href="/iet">IET</a></li>
+                                    <li><a href="/iete">IETE</a></li>
+                                    <li><a href="/iiche">IICHe</a></li>
+                                    <li><a href="/robolution">Robolution</a></li>
+                                    <li><a href="/srijan">Srijan</a></li>
+                                    <li><a href="/sae">SAE</a></li>
+                                 </ul> 
+                            </div>
+
+                            <div class="col-1">
+                                <div class="list-caption">Cultural</div>
+                                <ul>
+                                    <li><a href="/dance">Dance</a></li>
+                                    <li><a href="/dramsoc">Dramsoc</a></li>
+                                    <li><a href="/dristi">Dristi</a></li>
+                                    <li><a href="/epac">E-PAC</a></li>
+                                    <li><a href="/fas">FAS</a></li>
+                                    <li><a href="/leo">Leo</a></li>
+                                    <li><a href="/litsoc">LIT-SOC</a></li>
+                                    <li><a href="/music">Music</a></li>
+                                    <li><a href="/naps">NAPS</a></li>
+                                    <li><a href="/psoc">P-Soc</a></li>
+                                    <li><a href="/rotaract">Rotaract</a></li>
+                                    <li><a href="/smp">SMP</a></li>
+                                    <li><a href="/sac">SAC</a></li>
+                                    <li><a href="/unesquo">UNESQUO</a></li>
+                                </ul> 
+                            </div>
+                            </div>
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="club-list">Event</a>
+                            <div class="club-layout">
+                                <div class="col-2">
+                                    <h5>Upcoming Events</h5>
+                                    
+                                    <div class="event-list-body-cover">
+
+                                     <% @allpost.each do |post| %>
+                                        <% if post.category == "Event" %>
+                                        <a href = "/posts/<%=post.id%>">
+                                    <div class="event-list-body">
+                                    <div class="list-caption"><%= post.title %></div>
+                                    <div class="list-event-date"><%= post.eventdatetime.strftime("%e %b %Y") %>, <%= post.venue %>, <%= post.eventdatetime.strftime("%I:%M %p") %></div></a>
+                                    </div>
+                                    <% end %>
+                                    <% end %>     
+                                        
+                                    <hr>    
+                                    </div>
+                                    
+
+                                    </div>
+                            </div>  
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="club-list">Workshop</a>
+                            <div class="club-layout">
+                                <div class="col-2">
+                                    <h5>Upcoming Workshops</h5>
+                                    
+                                    <div class="event-list-body-cover">
+
+                                     <% @allpost.each do |post| %>
+                                        <% if post.category == "Workshop" %>
+                                        <a href = "/posts/<%=post.id%>">
+                                    <div class="event-list-body">
+                                    <div class="list-caption"><%= post.title %></div>
+                                    <div class="list-event-date"><%= post.eventdatetime.strftime("%e %b %Y") %>, <%= post.venue %>, <%= post.eventdatetime.strftime("%I:%M %p") %></div></a>
+                                    </div>
+                                    <% end %>
+                                    <% end %>         
+                                    <hr>    
+                                    </div>
+                                    
+
+                                    </div>
+                            </div>  
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="club-list">Induction</a>
+                            <div class="club-layout">
+                                <div class="col-2">
+                                    <h5>Upcoming Inductions</h5>
+                                    
+                                    <div class="event-list-body-cover">
+                                        <% @allpost.each do |post| %>
+                                        <% if post.category == "Induction" %>
+                                        <a href = "/posts/<%=post.id%>">
+                                    <div class="event-list-body">
+                                    <div class="list-caption"><%= post.title %></div>
+                                    <div class="list-event-date"><%= post.eventdatetime.strftime("%e %b %Y") %>, <%= post.venue %>, <%= post.eventdatetime.strftime("%I:%M %p") %></div></a>
+                                    </div>
+                                    <% end %>
+                                    <% end %>     
+                                    <hr>   
+                                    </div>
+                                    
+
+                                    </div>
+                            </div>  
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="club-list">Others</a>
+                            <div class="club-layout">
+                                <div class="col-2">
+                                    <h5>Others</h5>
+                                    
+                                    <div class="event-list-body-cover">
+
+                                     <% @allpost.each do |post| %>
+                                        <% if post.category == "Others" %>
+                                        <a href = "/posts/<%=post.id%>">
+                                    <div class="event-list-body">
+                                    <div class="list-caption"><%= post.title %></div>
+                                    <div class="list-event-date"><%= post.eventdatetime.strftime("%e %b %Y") %>, <%= post.venue %>, <%= post.eventdatetime.strftime("%I:%M %p") %></div></a>
+                                    </div>
+                                    <% end %>
+                                    <% end %>         
+                                    <hr>    
+                                    </div>
+                                    
+
+                                    </div>
+                            </div>  
+                        </li>
+
+                    </ul>
+
+                    <form class="navbar-form navbar-left" role="search">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search"/>
+                        </div>
+
+                        <button type="submit" class="btn btn-default">Submit</button>                       
+                    </form>
+
+                    <ul class="nav navbar-nav navbar-right">
+                         <% if session[:username] %>
+                         <li><a href="/admin">Welcome&nbsp;<%= session[:username] %></a></li>
+                         <% else %>
+                         <li><a href="/admin">Login</a></li>
+                         <% end %>
+                   <li><a href="/feedback">Feedback</a></li>
+                   <li><a href="/about">About</a></li> 
+                   <li><a href="/admin/logout">Logout</a></li>              
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    <div class="container-fluid" id="admin-cover">
+
+    <h1><%= session[:username] %><small>Admin page</small></h1>
+    <hr/>
+    <center><div id="main-container" class="container">
+      <div class="row">
+        <div class="col-lg-12">
+        
+  <% flash.each do |name, msg| -%>
+    <strong><%= content_tag :div, msg, class: 'alert alert-info'%></strong>
+  <% end %>
+  </div></div></div><div></center>
+    <ul class="nav nav-tabs nav-justified">
+    <% if @mode == "index" %>
+      <li role="presentation" class="active"><a href="#edit" data-toggle="tab">Recent Posts</a></li>
+      <li role="presentation"><a href="#post" data-toggle="tab">Post / Share</a></li>
+    <% else %>
+      
+      <li role="presentation" class="active"><a href="#post" data-toggle="tab">Post / Share</a></li>
+      <li role="presentation" ><a href="#edit" data-toggle="tab">Recent Posts</a></li>
+    <% end %>
+      <li role="presentation"><a href="#change" data-toggle="tab">Implement Change</a></li>
+      <li role="presentation"><a href="#our-req" data-toggle="tab">Our Requirements</a></li>
+
+    </ul>
+
+  <div class="tab-content">
+  <% if @mode == "edit" %>
+    <div id="post" class="tab-pane active">
+  <% else %>
+  <div id="post" class="tab-pane">
+  <% end %>
+    <div class = "form-horizontal" > 
+    <% if @mode == "index" %>
+      <%= form_for @post ,url: {action: "create_post"}  do |f| %>
+      <div class="form-group">
+        <label for="inputTitle" class="col-sm-2 control-label">Title</label>
+        <div class="col-sm-7">
+         <%= f.text_field("title",:class =>'form-control', :placeholder => "Title of the post", :maxlength =>30, :required => true) %>
+         <p>Max. 30 characters</p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Category</label>
+        <div class="col-sm-7">
+          <div class="radio">
+
+            <label>
+              <%= f.radio_button 'category', 'Event' %>
+              Event
+            </label><br>
+
+            <label>
+              <%= f.radio_button 'category', 'Workshop' %>
+              Workshop
+            </label><br>
+
+            <label>
+              <%= f.radio_button 'category', 'Induction' %>
+              Induction
+            </label><br>
+
+            <label>
+              <%= f.radio_button 'category', 'Others' %>
+              Others
+            </label>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="inputVenue" class="col-sm-2 control-label">Venue</label>
+        <div class="col-sm-7">
+          <%= f.text_field("venue" ,:class =>'form-control', :placeholder => "Venue", :maxlength =>15, :required => true) %>
+          <p>Max. 15 characters</p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="inputDate" class="col-sm-2 control-label">Date and Time</label>
+        <div class="col-lg-4"> 
+
+        	<%= datetime_select("post" ,"eventdatetime", ampm: true, prompt: true, :class => 'form-control', :required => true) %>
+          
+        </div> 
+        
+      
+        </div>
+
+      <div class="form-group">
+        <label for="shortDescription" class="col-sm-2 control-label">Short Description</label>
+        <div class="col-sm-7">
+          <%= f.text_area("shortdesc", :class =>'form-control', :placeholder => "Short Description of the post", :maxlength => 140, :rows=> 3, :required => true) %>
+          <p>Max. 140 characters</p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="longDescription" class="col-sm-2 control-label">Long Description</label>
+        <div class="col-sm-7">
+          <%= f.text_area("longdesc", :class =>'form-control', :placeholder => "Complete description of the Event", :maxlength =>2000, :rows=> 5, :required => true) %></textarea>
+        <p>No word limit</p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="insert-image" class="col-sm-2 control-label">Insert Image</label>
+        <div class="col-sm-7">
+        
+
+          <%= f.file_field :image1 , :class => 'btn btn-default btn-file' %>&nbsp;<%= f.file_field :image2 ,:class => 'btn btn-default btn-file' %>&nbsp;<%= f.file_field :image3, :class => 'btn btn-default btn-file' %>
+          
+        </div>
+      </div>
+
+
+
+      <div class="form-group">
+        <label for="insert-video" class="col-sm-2 control-label">Insert Video</label>
+        <div class="col-sm-7">
+          <%= f.file_field 'video1', :class => 'btn btn-default btn-file'%>&nbsp;
+
+           <div class="form-group">
+        
+       
+      </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="insert-file" class="col-sm-2 control-label">Insert Files</label>
+        <div class="col-sm-7">
+          <%= f.file_field 'file1', :class => 'btn btn-default btn-file'%>&nbsp;
+          <%= f.file_field 'file2' , :class => 'btn btn-default btn-file'%>&nbsp;
+          <%= f.file_field 'file3' , :class => 'btn btn-default btn-file'%>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-7">
+          <%= f.submit :class => 'btn btn-info', data: {confirm: "File Uploads may take some time to finish, please be patient.     Press OK to publish the post"}%>
+        </div>
+      </div>
+
+      <div class="form-group" style="visibility:hidden;">
+        <label for="inputTitle" class="col-sm-2 control-label">Club</label>
+        <div class="col-sm-7">
+      <%= f.text_field("club", :value =>session[:username], class: 'form-control', readonly: true) %>
+      </div>
+      </div>
+
+      </div>
+      <% end %>
+
+      <% else %>
+      <%= form_for @post do |f| %>
+      <div class="form-group">
+        <label for="inputTitle" class="col-sm-2 control-label">Title</label>
+        <div class="col-sm-7">
+         <%= f.text_field("title",:class =>'form-control', :placeholder => "Title of the post", :maxlength =>30, :required => true) %>
+         <p>Max. 30 characters</p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Category</label>
+        <div class="col-sm-7">
+          <div class="radio">
+
+            <label>
+              <%= f.radio_button 'category', 'Event' %>
+              Event
+            </label><br>
+
+            <label>
+              <%= f.radio_button 'category', 'Workshop' %>
+              Workshop
+            </label><br>
+
+            <label>
+              <%= f.radio_button 'category', 'Induction' %>
+              Induction
+            </label><br>
+
+            <label>
+              <%= f.radio_button 'category', 'Others' %>
+              Others
+            </label>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="inputVenue" class="col-sm-2 control-label">Venue</label>
+        <div class="col-sm-7">
+          <%= f.text_field("venue" ,:class =>'form-control', :placeholder => "Venue", :maxlength =>15, :required => true) %>
+          <p>Max. 15 characters</p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="inputDate" class="col-sm-2 control-label">Date and Time</label>
+        <div class="col-lg-4"> 
+
+          <%= datetime_select("post" ,"eventdatetime", ampm: true, prompt: true, :class => 'form-control', :required => true) %>
+          
+        </div> 
+        
+      
+        </div>
+
+      <div class="form-group">
+        <label for="shortDescription" class="col-sm-2 control-label">Short Description</label>
+        <div class="col-sm-7">
+          <%= f.text_area("shortdesc", :class =>'form-control', :placeholder => "Short Description of the post", :maxlength => 140, :rows=> 3, :required => true) %>
+          <p>Max. 140 characters</p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="longDescription" class="col-sm-2 control-label">Long Description</label>
+        <div class="col-sm-7">
+          <%= f.text_area("longdesc", :class =>'form-control', :placeholder => "Complete description of the Event", :maxlength =>2000, :rows=> 5, :required => true) %></textarea>
+        <p>No word limit</p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="insert-image" class="col-sm-2 control-label">Insert Image</label>
+        <div class="col-sm-7">
+        
+
+          <%= f.file_field :image1 , :class => 'btn btn-default btn-file' %>&nbsp;<%= f.file_field :image2 ,:class => 'btn btn-default btn-file' %>&nbsp;<%= f.file_field :image3, :class => 'btn btn-default btn-file' %>
+          
+        </div>
+      </div>
+
+
+
+      <div class="form-group">
+        <label for="insert-video" class="col-sm-2 control-label">Insert Video</label>
+        <div class="col-sm-7">
+          <%= f.file_field 'video1', :class => 'btn btn-default btn-file'%>&nbsp;
+
+           <div class="form-group">
+        
+      </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="insert-file" class="col-sm-2 control-label">Insert Files</label>
+        <div class="col-sm-7">
+          <%= f.file_field 'file1', :class => 'btn btn-default btn-file'%>&nbsp;
+          <%= f.file_field 'file2' , :class => 'btn btn-default btn-file'%>&nbsp;
+          <%= f.file_field 'file3' , :class => 'btn btn-default btn-file'%>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-7">
+          <%= f.submit :class => 'btn btn-info', data: {confirm: "File Uploads may take some time to finish, please be patient.Press OK to publish the post"}%>
+        </div>
+      </div>
+
+      <div class="form-group" style="visibility:hidden;">
+        <label for="inputTitle" class="col-sm-2 control-label">Club</label>
+        <div class="col-sm-7">
+      <%= f.text_field("club", :value =>session[:username], class: 'form-control', readonly: true) %>
+      </div>
+      </div>
+
+      </div>
+      <% end %>
+
+  <% end %>
+    </div><br>
+
+    <div id="change" class="tab-pane">
+      <%= form_tag :action => 'change_password' do %>
+        
+        
+
+        <div class="form-group">
+          <label for="changePassword" class="col-sm-4 control-label">Change Password</label>
+          <div class="col-sm-7">
+
+            <%= password_field_tag("password" ,nil,:class =>'form-control', :placeholder => "Old Password",  :required => true) %><br>
+          
+            <%= password_field_tag("newpassword" ,nil,:class =>'form-control', :placeholder => "New Password",  :required => true) %><br>
+        
+           <%= password_field_tag("confirmnewpassword" , nil,:class =>'form-control', :placeholder => "Confirm New Password",  :required => true) %><br>
+          
+          </div>
+          <div class="col-sm-offset-4 col-sm-7">
+          <button type="submit" class="btn btn-default">Update</button>
+        </div><br>
+        </div><hr/>
+        <% end %>
+        
+       
+      <br>
+      <form role="form" class="form-horizontal"> 
+
+        <div class="form-group">
+          <label for="updateShort" class="col-sm-4 control-label">Short Description</label>
+          <div class="col-sm-7">
+            <textarea class="form-control" rows="3" placeholder="Update club's short description"></textarea><br>
+          </div>
+          <div class="col-sm-offset-4 col-sm-7">
+          <button type="submit" class="btn btn-default">Update</button>
+          </div>
+        </div><hr/>
+
+        <div class="form-group">
+          <label for="updateLong" class="col-sm-4 control-label">Long Description</label>
+          <div class="col-sm-7">
+            <textarea class="form-control" rows="5" placeholder="Update club's long description"></textarea><br>
+          </div>
+          <div class="col-sm-offset-4 col-sm-7">
+          <button type="submit" class="btn btn-default">Update</button>
+          </div>
+        </div><hr/>
+
+      </form>      
+    </div><br>
+
+    <div id="our-req" class="tab-pane">
+      <div class="form-group">
+          <label for="suggest" class="col-sm-2 control-label">Label</label>
+          
+          <div class="col-sm-7">
+          <input type="file" name="image" accept="image/*">
+          </div>
+          <br><br>
+      </div>
+
+      <div class="form-group">
+          <label for="suggest" class="col-sm-2 control-label">Label</label>
+          
+          <div class="col-sm-7">
+          <input type="file" name="image" accept="image/*">
+          </div>
+          <br><br>
+      </div>
+
+      <div class="form-group">
+          <label for="suggest" class="col-sm-2 control-label">Label</label>
+          
+          <div class="col-sm-7">
+          <input type="file" name="image" accept="image/*">
+          </div>
+          <br><br>
+      </div>
+    </div>
+
+<% if @mode == "index" %>
+
+    <div id="edit" class="tab-pane active">
+  <% else %>
+  <div id="edit" class="tab-pane">
+  <% end %>
+
+       <div class="list-content-cover">
+<% if @userpost.blank? %>       
+
+        <div class="list-content">
+        <center><br><br>You have't published any posts yet</center>
+        </div>
+        <% else %>
+<% @userpost.each do |post| %>
+       
+        <div class="list-content">
+          <img src="<%= post.image1.url(:thumb) %>">
+          <div class="list-heading">
+          <h4><%= post.title %></h4>
+          <% if post.eventdatetime.blank? %><br>
+                    <% else %>
+          <h6><i>on</i> <strong><%= post.eventdatetime.strftime('%A, %d %B %Y') %></strong><i>, at </i><strong><%= post.eventdatetime.strftime('%I:%M %p') %></strong> <i>, in </i><strong> <%= post.venue %></strong></h6>
+          <% end %>
+          </div>
+
+          <div class="edit-cover">
+            <a href = "/posts/<%= post.id %>"><button>Show</button></a>
+            <a href = "/admin/edit/<%= post.id %>"><button>Edit</button></a>
+            <a href = "/admin/destroy/<%= post.id %>"><button>Delete</button></a>    
+          </div>
+
+          <br>
+          <div class="list-post-date">
+            <i>-- Posted on <span class"date"> <%= post.created_at.strftime('%A, %d %B %Y') %></span> at <span class="date"> <%= post.created_at.strftime('%I:%M %p') %></span></i>
+          </div>
+        </div>  
+        <% end %>
+        <% end %>
+
+      </div>
+
+    </div>
+
+
+   </div> 
+    </div>
+
+   <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
+

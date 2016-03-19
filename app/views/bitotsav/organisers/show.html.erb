@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @bitotsav_organiser.Name %>
+</p>
+
+<p>
+  <strong>Role / Work Assigned:</strong>
+  <%= @bitotsav_organiser.Role %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @bitotsav_organiser.Rating %>
+</p>
+
+<p>
+  <strong>Activity:</strong>
+  <%= @bitotsav_organiser.Activity %>
+</p>
+
+<p>
+  <strong>Team:</strong>
+  <%= @bitotsav_organiser.Team %>
+</p>
+
+<%= link_to 'Edit', edit_bitotsav_organiser_path(@bitotsav_organiser) %> |
+<%= link_to 'Back', bitotsav_organisers_path %>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>-->
+    <script type="text/javascript" src="/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="clubs.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
+    <link rel="stylesheet" type="text/css" href="navbar.css">
+    <link rel="stylesheet" type="text/css" href="footer.css">
+
+    
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $(".more-text").hide();
+            $(".readMore").click(function(){
+                $(".more-text").toggle(1000);
+            });        
+        });
+    </script>
+    
+    <title>About us | BIT Deets</title>
+
+    <!-- Bootstrap -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="navbar">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                  <span class="sr-only">Navigation</span>
+                  <span class"icon-bar"></span> 
+                  <span class"icon-bar"></span> 
+                  <span class"icon-bar"></span>   
+              </button>
+
+              <a class="navbar-brand" href="/"><img src="/img/deets-new.png" alt="brand" width="50px" height="auto"></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="/">Home<span class="sr-only"></span></a></li>
+                
+                <li class="dropdown">
+                  <a id="club-list" class="dropdown-toggle" data-toggle="dropdown">Clubs</a>
+                            <div class="club-layout">
+                                <div class="col-2">
+                                    <h5>Clubs in BIT</h5>
+                                </div>
+
+                            <div class="clear"></div>
+
+                            <div class="col-1">
+                                <div class="list-caption">Technical</div>
+                                <ul>
+                                    <li><a href="/acm">ACM</a></li>
+                                    <li><a href="/edc">EDC</a></li>
+                                    <li><a href="/firebolt">Firebolt</a></li>
+                                    <li><a href="/ieee">IEEE</a></li>
+                                    <li><a href="/iet">IET</a></li>
+                                    <li><a href="/iete">IETE</a></li>
+                                    <li><a href="/iiche">IICHe</a></li>
+                                    <li><a href="/robolution">Robolution</a></li>
+                                    <li><a href="/srijan">Srijan</a></li>
+                                    <li><a href="/sae">SAE</a></li>
+                                 </ul> 
+                            </div>
+
+                            <div class="col-1">
+                                <div class="list-caption">Cultural</div>
+                                <ul>
+                                    <li><a href="/dance">Dance</a></li>
+                                    <li><a href="/dramsoc">Dramsoc</a></li>
+                                    <li><a href="/dristi">Dristi</a></li>
+                                    <li><a href="/epac">E-PAC</a></li>
+                                    <li><a href="/fas">FAS</a></li>
+                                    <li><a href="/leo">Leo</a></li>
+                                    <li><a href="/litsoc">LIT-SOC</a></li>
+                                    <li><a href="/music">Music</a></li>
+                                    <li><a href="/naps">NAPS</a></li>
+                                    <li><a href="/psoc">P-Soc</a></li>
+                                    <li><a href="/rotaract">Rotaract</a></li>
+                                    <li><a href="/smp">SMP</a></li>
+                                    <li><a href="/sac">SAC</a></li>
+                                    <li><a href="/unesquo">UNESQUO</a></li>
+                                </ul> 
+                            </div>
+                            </div>
+                </li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="club-list">Event</a>
+                            <div class="club-layout">
+                                <div class="col-2">
+                                    <h5>Upcoming Events</h5>
+                                    
+                                    <div class="event-list-body-cover">
+
+                                     <% @allpost.each do |post| %>
+                                        <% if post.category == "event" %>
+                                    <div class="event-list-body">
+                                    <div class="list-caption"><%= post.title %></div>
+                                    <div class="list-event-date"><%= post.eventdatetime.strftime("%e %b %Y") %>, <%= post.venue %>, <%= post.eventdatetime.strftime("%I:%M %p") %></div>
+                                    </div>
+                                    <% end %>
+                                    <% end %>     
+                                        
+                                    <hr>    
+                                    </div>
+                                    
+
+                                    </div>
+                            </div>  
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="club-list">Workshop</a>
+                            <div class="club-layout">
+                                <div class="col-2">
+                                    <h5>Upcoming Workshops</h5>
+                                    
+                                    <div class="event-list-body-cover">
+
+                                     <% @allpost.each do |post| %>
+                                        <% if post.category == "workshop" %>
+                                    <div class="event-list-body">
+                                    <div class="list-caption"><%= post.title %></div>
+                                    <div class="list-event-date"><%= post.eventdatetime.strftime("%e %b %Y") %>, <%= post.venue %>, <%= post.eventdatetime.strftime("%I:%M %p") %></div>
+                                    </div>
+                                    <% end %>
+                                    <% end %>         
+                                    <hr>    
+                                    </div>
+                                    
+
+                                    </div>
+                            </div>  
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="club-list">Induction</a>
+                            <div class="club-layout">
+                                <div class="col-2">
+                                    <h5>Upcoming Inductions</h5>
+                                    
+                                    <div class="event-list-body-cover">
+                                        <% @allpost.each do |post| %>
+                                        <% if post.category == "induction" %>
+                                    <div class="event-list-body">
+                                    <div class="list-caption"><%= post.title %></div>
+                                    <div class="list-event-date"><%= post.eventdatetime.strftime("%e %b %Y") %>, <%= post.venue %>, <%= post.eventdatetime.strftime("%I:%M %p") %></div>
+                                    </div>
+                                    <% end %>
+                                    <% end %>     
+                                    <hr>   
+                                    </div>
+                                    
+
+                                    </div>
+                            </div>  
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="club-list">Others</a>
+                            <div class="club-layout">
+                                <div class="col-2">
+                                    <h5>Others</h5>
+                                    
+                                    <div class="event-list-body-cover">
+
+                                     <% @allpost.each do |post| %>
+                                        <% if post.category == "others" %>
+                                    <div class="event-list-body">
+                                    <div class="list-caption"><%= post.title %></div>
+                                    <div class="list-event-date"><%= post.eventdatetime.strftime("%e %b %Y") %>, <%= post.venue %>, <%= post.eventdatetime.strftime("%I:%M %p") %></div>
+                                    </div>
+                                    <% end %>
+                                    <% end %>         
+                                    <hr>    
+                                    </div>
+                                    
+
+                                    </div>
+                            </div>  
+                        </li>
+
+              </ul>
+
+              <form class="navbar-form navbar-left" role="search">
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search"/>
+                  </div>
+
+                  <button type="submit" class="btn btn-default">Submit</button>               
+              </form>
+
+              <ul class="nav navbar-nav navbar-right">
+                   <% if session[:username] %>
+                   <li><a href="/admin">Welcome&nbsp;<%= session[:username] %></a></li>
+                   <% else %>
+                   <li><a href="/admin">Login</a></li>
+                   <% end %>
+                   <li><a href="feedback.html">Feedback</a></li>
+                   <li><a href="about.html">About</a></li>        
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+
+        
+    <div class="container-fluid">
+    <div class="head-text">About the website</div>
+    <hr/>
+    <div class="row">
+    <div class="logo-cover">
+    <div class="col-lg-3">
+    <div class="logo">
+      <img src="/img/deets.png">
+    </div></div>
+    <div class="col-lg-9">
+    <div class="about-text">
+      <h1>BIT Deets</h1>
+      <h4>An online dashboard for all the club activities and campus updates.</h4>
+      <p>This will helps the students to easily view and get updated with all the new events taking place on campus, and for the club members to showcase their events efficiently. We do not get an easy single source via which we can get complete details of all the club events and happenings, in one convenient place.<br>We hope that our initiative for collaboration and proper publicity of college events will be helpful for one and all.</p><button class="readMore">Read more..</button>
+      <div class="more-text">
+        As a college student, I miss out a lot of opportunities due to not knowing about it. Campus and various clubs would try their best to print out posters and stick them everywhere, share their posts on a number on groups on Facebook. Many students walk past it and don't get a proper look at it. There are a lot of supplies and time going to waste for these clubs because of this situation. No more slowing down to squint at a poster on your way to class. <br><br>
+        This is where I say a way of connecting both students and club associations together by creating a centralized platform. Hence, the idea of BIT Deets was born.<br><br>
+        <strong>- Shubham Lal</strong><hr/>
+
+      </div>
+      <div class="button-text">We would love to hear your feedback and suggestions<span class="button"><a href ="/feedback"><button>Feedback / Suggestions</button></a></span></div>
+      <div class="quotes"></div>
+    </div></div>
+    </div>
+    </div>
+    <hr/>
+    <div class="head-text2">Developers</div>
+    <hr/>
+    
+    <div class="aboutus-cover">
+    <center>
+    <div class="pic-text-cover">
+      <div class="circle" style="background-image: url(/img/shubham.JPG);">
+        
+      </div>
+
+      <div class="circle-text">
+        <h1>Shubham Lal</h1>
+        <h4>BIT Mesra, 2k14 IT</h4>
+        <p>Designer and Developer - BIT Deets</p>
+        <a href="https://www.facebook.com/creater.shubham" target="_blank"><img src="img/fb.png" height="20px" height="20px" class="fb-pic"></a><span class="tab"></span><a href="https://twitter.com/thrEE_deSires" target="_blank"><img src="img/tw-c.png" height="28px" width="40px" class="tw-pic"></a><span class="tab"></span><a href = MAILTO:mail.shubhamlal@gmail.com><img src="img/gm-c.png" width="20px" height="18px" class="gm-pic"></a><span class="tab"></span><a href="tel:969-394-1136"><img src="img/ph-c.png" width="20px" height="auto" style="margin-left:10px;" class="ph-pic"></a><br><br><br>
+      </div>
+    </div>
+
+    <div class="pic-text-cover">
+      <div class="circle" style="background-image: url(https://pbs.twimg.com/profile_images/550294002172297217/H_9ctehK.jpeg);">
+        
+      </div>
+
+      <div class="circle-text">
+        <h1>Joy Lal Chattaraj</h1>
+        <h4>BIT Mesra, 2k14 IT</h4>
+        <p>Back-end Developer - BIT Deets</p>
+        <a href="https://www.facebook.com/chattaraj.oy" target="_blank"><img src="img/fb.png" height="20px" height="20px" class="fb-pic"></a><span class="tab"></span><a href="https://twitter.com/joy_lal" target="_blank"><img src="img/tw-c.png" height="28px" width="40px" class="tw-pic"></a><span class="tab"></span><a href = MAILTO:joylal4896@gmail.com><img src="img/gm-c.png" width="20px" height="18px" class="gm-pic"></a><span class="tab"></span><a href="tel:887-357-9921"><img src="img/ph-c.png" width="20px" height="auto" style="margin-left:10px;" class="ph-pic"></a><br><br><br>
+      </div>
+    </div>
+    </center><br><br>
+
+    
+
+    </div></div> 
+
+    <div class="footer">
+
+      
+      <span class="glyphicon glyphicon-home" aria-hidden="true"></span><span class="footer-text">Contact Us</span><span class="footer-text">Feedback / Suggestions</span><span class="footer-text-last">View us on Facebook</span>
+      <div class="footer-site-name">bitdeets.in</div>
+      <div class="share-like">
+        <div class="fb-like" data-href="https://www.facebook.com/bitdeets" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+
+        <div class="links">
+        <a href="https://www.facebook.com/bitdeets" target="_blank"><img src="img/fb-base.png" width="8px" height="auto" class="fb"></a><span class="space20"></span><img src="img/tw.png" width="30px" height="25px" class="tw"><span class="space20"></span><img src="img/gm.png" width= "16px" height="16px" class="gm"><span class="space20"></span><img src="img/ph.png" width="17px" height="19px" class="ph">
+        </div> 
+
+        <div class="copyright">&copy; BIT Deets<span class="rights">All Rights Reserved 2015</span></div> 
+      </div>
+      
+    </div>
+   <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/js/bootstrap.min.js"></script>
+  </body>
+</html>

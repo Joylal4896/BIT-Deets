@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head><title>Executive body</title></head>
+<body>
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Executive Bodies</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Club</th>
+      <th>Name</th>
+      <th>Role</th>
+      <th>Role first char</th>
+      <th>Fb link</th>
+      <th>Twitter link</th>
+      <th>Contact</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_update_executive_bodies.each do |admin_update_executive_body| %>
+      <tr>
+        <td><%= admin_update_executive_body.club %></td>
+        <td><%= admin_update_executive_body.name %></td>
+        <td><%= admin_update_executive_body.role %></td>
+        <td><%= admin_update_executive_body.role_first_char %></td>
+        <td><%= admin_update_executive_body.fb_link %></td>
+        <td><%= admin_update_executive_body.twitter_link %></td>
+        <td><%= admin_update_executive_body.contact %></td>
+        <td><%= link_to 'Show', admin_update_executive_body %></td>
+        <td><%= link_to 'Edit', edit_admin_update_executive_body_path(admin_update_executive_body) %></td>
+        <td><%= link_to 'Destroy', admin_update_executive_body, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Executive body', new_admin_update_executive_body_path %>
+</body>
+</html>

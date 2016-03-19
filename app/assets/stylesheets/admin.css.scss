@@ -1,0 +1,108 @@
+// Place all the styles related to the admin controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#login-cover{
+margin-top: 100px;
+}
+.head-text{
+font-family: 'Tangerine', serif;
+font-size: 80px;
+margin: 60px;
+margin-left: 30px;
+margin-bottom: -20px;
+text-shadow: 4px 4px 4px #aaa;
+}
+.head-text2{
+font-family: 'Tangerine', serif;
+font-size: 80px;
+margin-top: -10px;
+margin-left: 30px;
+margin-bottom: -20px;
+text-shadow: 4px 4px 4px #aaa;
+}
+.logo{
+display: inline-block;
+margin-top: 20px;
+margin-left: 100px;
+margin-right: 0px;
+}
+.logo img{
+height: 200px;
+width: 200px;
+}
+.about-text{
+display: inline-block;
+margin-left: 20px;
+margin-right: 50px;
+
+}
+.logo-cover{
+display: inline-block;
+}
+.button-text{
+font-size: 20px;
+}
+.button button{
+float: right;
+background: transparent;
+border-radius: 7px;
+font-style: Arial;
+font-size: 10px;
+padding-top: 10px;
+padding-bottom: 10px;
+padding-right: 25px;
+padding-left: 25px;
+border: none;
+border: 1px solid gray;
+}
+.quotes{
+font-style: italic;
+}
+.circle{
+display: inline-block;
+height: 200px;
+width: 200px;
+border-radius: 50%;
+background-color: gray;
+}
+.circle-text{
+display: inline-block;
+padding-top: -200px;
+margin-left: 20px;
+}
+.tab{
+margin-left: 8px;
+}
+.circle1{
+display: inline-block;
+height: 160px;
+width: 160px;
+border-radius: 50%;
+background-color: gray;
+}
+.circle-text1{
+display: inline-block;
+margin-left: 20px;
+}
+.lower-about-cover{
+margin-left: 110px;
+}
+.aboutus-cover{
+background-color: white;
+background-image: url(bg-c.jpg);
+background-repeat: no-repeat;
+width: 100%;
+}
+.aboutus-cover img{
+opacity: 0.1;
+}
+#admin-cover{
+margin-top: 70px;
+margin-left: 50px;
+}
+.post, .change{
+border: 1px solid #cbcbcb;
+border-top: none;
+padding-top: 30px;
+}

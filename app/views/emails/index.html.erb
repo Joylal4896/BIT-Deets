@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Emails</h1>
+
+<table  class="table table-hover">
+  <thead>
+    <tr>
+      <th>Mail</th>
+      <th>Name</th>
+      <th>Mailhash</th>
+      <th>Confirmation</th>
+      <th>Club</th>
+      <th>Created at</th>
+      <th>Updated at</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @emails.each do |email| %>
+      <tr>
+        <td><%= email.mail %></td>
+        <td><%= email.name %></td>
+        <td><%= email.password_digest %></td>
+        <td><%= email.confirmation %></td>
+        <td><%= email.club %></td>
+        <td><%= email.created_at %></td>
+        <td><%= email.updated_at %></td>
+        <td><%= link_to 'Show', email %></td>
+        <td><%= link_to 'Edit', edit_email_path(email) %></td>
+        <td><%= link_to 'Destroy', email, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Email', new_email_path %>

@@ -1,0 +1,33 @@
+<%= form_for(@bitotsavcore) do |f| %>
+  <% if @bitotsavcore.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bitotsavcore.errors.count, "error") %> prohibited this bitotsavcore from being saved:</h2>
+
+      <ul>
+      <% @bitotsavcore.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :contact %><br>
+    <%= f.text_field :contact %>
+  </div>
+  <div class="field">
+    <%= f.label :fblink %><br>
+    <%= f.text_field :fblink %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

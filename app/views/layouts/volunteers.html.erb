@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+ <title>Manage Volunteers | BITOTSAV 2016</title>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
+  		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+   <%= csrf_meta_tags %>
+
+</head>
+<body>
+<div class="links">
+         <a href="/bitotsav"><button type="button" class="btn btn-default">HOME PAGE</button></a>
+		<a href="/bitotsav/select"><button type="button" class="btn btn-default">ADMIN-HOME</button></a>
+        <a href="/bitotsav/logout"><button type="button" class="btn btn-default">LOGOUT</button></a>
+      </div>
+
+<%= yield %>
+
+</body>
+</html>
+

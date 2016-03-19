@@ -1,0 +1,2 @@
+module Bitotsav::OrganisersHelper
+end

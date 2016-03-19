@@ -1,0 +1,45 @@
+<%= form_for(@admin_update_executive_body) do |f| %>
+  <% if @admin_update_executive_body.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@admin_update_executive_body.errors.count, "error") %> prohibited this admin_update_executive_body from being saved:</h2>
+
+      <ul>
+      <% @admin_update_executive_body.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :club %><br>
+    <%= f.text_field :club %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :role %><br>
+    <%= f.text_field :role %>
+  </div>
+  <div class="field">
+    <%= f.label :role_first_char %><br>
+    <%= f.text_field :role_first_char %>
+  </div>
+  <div class="field">
+    <%= f.label :fb_link %><br>
+    <%= f.text_field :fb_link %>
+  </div>
+  <div class="field">
+    <%= f.label :twitter_link %><br>
+    <%= f.text_field :twitter_link %>
+  </div>
+  <div class="field">
+    <%= f.label :contact %><br>
+    <%= f.text_field :contact %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

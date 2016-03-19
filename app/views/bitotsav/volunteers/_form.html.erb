@@ -1,0 +1,44 @@
+<%= form_for(@bitotsav_volunteer) do |f| %>
+  <% if @bitotsav_volunteer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bitotsav_volunteer.errors.count, "error") %> prohibited this bitotsav_volunteer from being saved:</h2>
+
+      <ul>
+      <% @bitotsav_volunteer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="col-lg-3"><div class="form-group">
+    <%= f.label :Name %><br>
+    <%= f.text_field :Name  , class: 'form-control'%>
+  </div></div>
+   <div class="col-lg-3"><div class="form-group">
+    <%= f.label :Role %><strong> / Work Assigned</strong><br>
+    <%= f.text_field :Role , class: 'form-control' %>
+  </div></div>
+   <div class="col-lg-3"><div class="form-group">
+    <%= f.label :Rating %>(0-5)<br>
+    <%= f.number_field :Rating  , class: 'form-control',:required => true, within: 0...6 %>
+  </div></div>
+   <div class="col-lg-3"><div class="form-group">
+    <%= f.label :Activity %><br>(Check if Active else uncheck)
+    <%= f.check_box :Activity , class: 'checkbox' %>
+  </div></div>
+   <% if session[:bitotsav] == "Admins" %>
+  <div class="col-lg-5"><div>
+    <%= f.label :Team %><br>
+    <%= f.text_field :Team, :value => session[:bitotsav], class: 'form-control' %>
+  </div></div>
+<% else %>
+   <div class="col-lg-5"><div style="visibility:hidden;">
+    <%= f.label :Team %><br>
+    <%= f.text_field :Team, :value => session[:bitotsav], :readonly => true , class: 'form-control' %>
+  </div></div>
+  <% end %>
+  <div class="actions">
+    <%= f.submit class: "btn btn-default" %>
+  </div>
+<% end %>

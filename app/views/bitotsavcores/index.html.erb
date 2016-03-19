@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Bitotsavcores</h1>
+<table class="table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Contact</th>
+      <th>Fblink</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bitotsavcores.each do |bitotsavcore| %>
+      <tr>
+        <td><%= bitotsavcore.name %></td>
+        <td><%= bitotsavcore.email %></td>
+        <td><%= bitotsavcore.contact %></td>
+        <td><%= bitotsavcore.fblink %></td>
+        <td><%= link_to 'Show', bitotsavcore %></td>
+        <td><%= link_to 'Edit', edit_bitotsavcore_path(bitotsavcore) %></td>
+        <td><%= link_to 'Destroy', bitotsavcore, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<br>
+
+<%= link_to 'New Bitotsavcore', new_bitotsavcore_path %>

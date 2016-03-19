@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+   
+   <link href="/css/bootstrap.min.css" rel="stylesheet">
+   <script src="/js/bootstrap.min.js"></script>
+   
+   
+     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]--> 
+    
+    <title><%= @club.clubname %> | BIT Deets</title>
+
+    <script>
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();   
+        });
+    </script>
+
+   
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="navbar">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                  <span class="sr-only">Navigation</span>
+                  <span class"icon-bar"></span> 
+                  <span class"icon-bar"></span> 
+                  <span class"icon-bar"></span>   
+              </button>
+
+              <a class="navbar-brand" href="/"><img src="/img/deets-new.png" alt="brand" width="50px" height="auto"></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="/">Home<span class="sr-only"></span></a></li>
+                
+                <li class="dropdown">
+                  <a id="club-list" class="dropdown-toggle" data-toggle="dropdown">Clubs</a>
+                            <div class="club-layout">
+                                <div class="col-2">
+                                    <h5>Clubs in BIT</h5>
+                                </div>
+
+                            <div class="clear"></div>
+
+                            <div class="col-1">
+                                <div class="list-caption">Technical</div>
+                                <ul>
+                                    <li><a href="/acm">ACM</a></li>
+                                    <li><a href="/edc">EDC</a></li>
+                                    <li><a href="/firebolt">Firebolt</a></li>
+                                    <li><a href="/ieee">IEEE</a></li>
+                                    <li><a href="/iet">IET</a></li>
+                                    <li><a href="/iete">IETE</a></li>
+                                    <li><a href="/iiche">IICHe</a></li>
+                                    <li><a href="/robolution">Robolution</a></li>
+                                    <li><a href="/srijan">Srijan</a></li>
+                                    <li><a href="/sae">SAE</a></li>
+                                 </ul> 
+                            </div>
+
+                            <div class="col-1">
+                                <div class="list-caption">Cultural</div>
+                                <ul>
+                                    <li><a href="/dance">Dance</a></li>
+                                    <li><a href="/dramsoc">Dramsoc</a></li>
+                                    <li><a href="/dristi">Dristi</a></li>
+                                    <li><a href="/epac">E-PAC</a></li>
+                                    <li><a href="/fas">FAS</a></li>
+                                    <li><a href="/leo">Leo</a></li>
+                                    <li><a href="/litsoc">LIT-SOC</a></li>
+                                    <li><a href="/music">Music</a></li>
+                                    <li><a href="/naps">NAPS</a></li>
+                                    <li><a href="/psoc">P-Soc</a></li>
+                                    <li><a href="/rotaract">Rotaract</a></li>
+                                    <li><a href="/smp">SMP</a></li>
+                                    <li><a href="/sac">SAC</a></li>
+                                    <li><a href="/unesquo">UNESQUO</a></li>
+                                </ul> 
+                            </div>
+                            </div>
+                </li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="club-list">Event</a>
+                            <div class="club-layout">
+                                <div class="col-2">
+                                    <h5>Upcoming Events</h5>
+                                    
+                                    <div class="event-list-body-cover">
+
+                                     <% @allpost.each do |post| %>
+                                        <% if post.category == "Event" %>
+                                        <a href = "/posts/<%=post.id%>">
+                                    <div class="event-list-body">
+                                    <div class="list-caption"><%= post.title %></div>
+                                    <div class="list-event-date"><%= post.eventdatetime.strftime("%e %b %Y") %>, <%= post.venue %>, <%= post.eventdatetime.strftime("%I:%M %p") %></div></a>
+                                    </div>
+                                    <% end %>
+                                    <% end %>     
+                                        
+                                    <hr>    
+                                    </div>
+                                    
+
+                                    </div>
+                            </div>  
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="club-list">Workshop</a>
+                            <div class="club-layout">
+                                <div class="col-2">
+                                    <h5>Upcoming Workshops</h5>
+                                    
+                                    <div class="event-list-body-cover">
+
+                                     <% @allpost.each do |post| %>
+                                        <% if post.category == "Workshop" %>
+                                        <a href = "/posts/<%=post.id%>">
+                                    <div class="event-list-body">
+                                    <div class="list-caption"><%= post.title %></div>
+                                    <div class="list-event-date"><%= post.eventdatetime.strftime("%e %b %Y") %>, <%= post.venue %>, <%= post.eventdatetime.strftime("%I:%M %p") %></div></a>
+                                    </div>
+                                    <% end %>
+                                    <% end %>         
+                                    <hr>    
+                                    </div>
+                                    
+
+                                    </div>
+                            </div>  
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="club-list">Induction</a>
+                            <div class="club-layout">
+                                <div class="col-2">
+                                    <h5>Upcoming Inductions</h5>
+                                    
+                                    <div class="event-list-body-cover">
+                                        <% @allpost.each do |post| %>
+                                        <% if post.category == "Induction" %>
+                                        <a href = "/posts/<%=post.id%>">
+                                    <div class="event-list-body">
+                                    <div class="list-caption"><%= post.title %></div>
+                                    <div class="list-event-date"><%= post.eventdatetime.strftime("%e %b %Y") %>, <%= post.venue %>, <%= post.eventdatetime.strftime("%I:%M %p") %></div></a>
+                                    </div>
+                                    <% end %>
+                                    <% end %>     
+                                    <hr>   
+                                    </div>
+                                    
+
+                                    </div>
+                            </div>  
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="club-list">Others</a>
+                            <div class="club-layout">
+                                <div class="col-2">
+                                    <h5>Others</h5>
+                                    
+                                    <div class="event-list-body-cover">
+
+                                     <% @allpost.each do |post| %>
+                                        <% if post.category == "Others" %>
+                                        <a href = "/posts/<%=post.id%>">
+                                    <div class="event-list-body">
+                                    <div class="list-caption"><%= post.title %></div>
+                                    <div class="list-event-date"><%= post.eventdatetime.strftime("%e %b %Y") %>, <%= post.venue %>, <%= post.eventdatetime.strftime("%I:%M %p") %></div></a>
+                                    </div>
+                                    <% end %>
+                                    <% end %>         
+                                    <hr>    
+                                    </div>
+                                    
+
+                                    </div>
+                            </div>  
+                        </li>
+
+              </ul>
+
+              
+
+              <ul class="nav navbar-nav navbar-right">
+                   <% if session[:username] %>
+                   <li><a href="/admin">Welcome&nbsp;<%= session[:username] %></a></li>
+                   <% else %>
+                   <li><a href="/admin">Login</a></li>
+                   <% end %>
+                   <li><a href="feedback.html">Feedback</a></li>
+                   <li><a href="about.html">About</a></li>        
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+    <div class="header-image" style="background-image: url(<%= @club.imagelink %>);">
+      <div id="overlay">
+        <div id="heading"><%= @club.clubname %>
+        <div id="website-btn">
+          <a href = "<%= @club.clubweblink %>" target="_blank"><button id="btn-value">Visit the club's website</button></a>
+	</div>
+        </div>
+        <div id="para">
+	<%= @club.clubdesc %>	
+        </div>
+        
+      </div>
+      <div id="menu-nav">
+          <button class="menu-btn" id="btn-1">
+            Executive Body
+          </button>
+          <button class="menu-btn" id="btn-2">
+            Induction Video
+          </button>
+        </div>
+    </div>
+
+
+    <div class="video-cover">
+    <center><div  id = "video">
+       <iframe width="560" height="315"  src ="<%= @club.videolink %>" frameborder="0" allowfullscreen></iframe>
+    </div></center></div>
+
+    <div id="ex-list">
+     <div class="container-fluid">
+       <div class="row">
+        <div class="col-lg-12">
+          <div class="ex-heading">
+            <h2>EXECUTIVE-BODY</h2>
+            <h6>List of people because of whom the club is functional</h6>
+                   
+          </div>
+        </div>  
+       </div>
+
+       <div class="row">
+
+         <div class="col-lg-4">
+           <div class="ex-quote">
+		<%= @club.clubquote %>
+            </div> 
+         </div>
+
+	
+         <div class="col-lg-4"><div class="table-wrap">
+           <table class="table">
+             <% @exbody.each do |exbody| %>
+    		<% if exbody.role_first_char.blank? %>  
+			
+	     <tr>
+               <td><%= exbody.role %></td>
+               <td><%= exbody.name %></td>
+             </tr>
+                            
+           
+         
+         <% end %>
+	<% end %>
+  </table></div></div>
+      
+
+    <div class="col-lg-4"> 
+              <div class="ex-core">
+		<% @exbody.each do |exbody| %>
+	 <% unless exbody.role_first_char.blank?  %>
+            
+             <div class="circle-1">
+               <%= exbody.role_first_char %>
+             </div>
+             <div class="core-name">
+               <h4><%= exbody.role %></h4>
+               <p><%= exbody.name %><span class="tab30"></span>
+               <a href ="<%= exbody.fb_link %>" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Visit facebook profile"><img src="img/fb.png" height="auto" width="10px" class="fb-ex"></a>
+
+               <span class="tab20"></span>
+
+               <a data-toggle="tooltip" data-placement="top" title="<%= exbody.twitter_link %>"><img src="img/gm-c.png" width="20px" height="20px" class="gm-ex"></a><span class="tab20"></span>
+
+               <a data-toggle="tooltip" data-placement="top" title="+91 9693941136"><img src="img/ph-c.png" width="20px" height="23px" class="ph-ex"></a></p>
+
+             </div>
+             <br><br>
+            <% end %>
+         <% end %>
+
+           </div>
+         </div>
+
+       </div>
+     </div> 
+    </div>
+
+    <br><br>
+    
+	<nav class="post-list">
+
+
+      <h3>Get SMS / Mail notifications</h3><hr/> 
+        <div class="subscribe">
+            <button class="subscribe-button">Subscribe to <%= @club.clubname %></button>
+            <div class="inside-subscribe" class="radio">
+                <p>Recieve notifications on -</p>
+                
+                <div class="enterEmail">
+                  <%= form_for(@email) do |f| %>
+                        <%= f.text_field :mail , class: 'form-control', :placeholder=> "Email", :method => 'post' %>
+                        <div style="visibility:hidden;">
+                        <%= f.text_field :club,  :class => 'form-control', :value => @club.shortname , readonly: true %>
+                        </div>
+                        <%= f.text_field :name, class: 'form-control', :placeholder=> "Name", :method => 'post' %>
+                    
+                    <button class="emailEntered" type="submit">Okay</button>
+                </div>
+
+  
+                <% end %>
+                <br>
+                
+                <div class="enterNumber">
+                    <%= form_tag( :action => 'subscribe') do %>
+                        <%= text_field_tag(:phone, "SMS Notifications Coming Soon", class: 'form-control', :placeholder => "Enter your Cell Phone number" ,readonly: true) %>
+                        
+                    
+                </div>
+                <% end %>
+                </div>
+            </div>
+        </div>
+
+
+        <h3>Posts from <%= @club.clubname %></h3><hr/>
+        <% @posts.each do |post| %>
+        <div class="list-content">
+          <img src="<%= post.image1.url(:post) %>">
+          <div class="list-heading">
+          <h4><%= post.title %></h4>
+          <% unless post.venue.blank? %>
+          <h6><%= post.eventdatetime.strftime("%B %d, %Y") %>&nbsp at &nbsp <%= post.eventdatetime.strftime("%H:%M") %> &nbsp in &nbsp <%= post.venue %></h6>
+          <% end %>
+          </div>
+        </div>
+        <% end %>
+      </nav>
+    
+    <br><br>
+
+
+
+
+
+      <section>
+      <% @posts.each do |post| %>
+      <div class="posts">
+        <h1><%= post.title %></h1>
+
+
+        <h5><span class="post-calendar"><img src="/img/calendar.png" width="15px" height="auto"></span><span class="tab20"></span><%= post.eventdatetime.strftime("%B %d, %Y") %><span class="tab30"></span><span class="post-clock"><img src="/img/clock.png" width="15px" height="auto"></span><span class="tab20"></span><%= post.eventdatetime.strftime("%H:%M") %><span class="tab20"></span><span class="post-category"><img src="/img/category.png" width="18px" height="auto"></span><span class="tab20"><%= post.category %></span>
+
+        </h5><hr/>
+
+
+        <div class="post-content">
+        <div class="post-img"><a id="pop" style="cursor:pointer;"><img src=<%= post.image1.url(:thumb) %> id="imageresource"></a></div>
+
+        <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    
+                    <div class="modal-body">
+                    
+                    <center><img src="" id="imagepreview" style="max-width: 800px; max-height: 610px;" ></center>
+
+                    </div>
+
+                                        
+
+                </div>
+            </div>
+        </div>
+
+        <div class="post-para"><p>
+          <%= post.longdesc %></p>
+          <p><i>-- Posted on <span class"date"> <%= post.created_at.strftime('%A, %d %B %Y') %></span> at <span class="date"> <%= post.created_at.strftime('%I:%M %p') %></span></i>
+          
+          </p></div>
+        
+       <hr/> 
+      </div>
+      </div>
+
+      <br><br>
+      </section>
+      <% end %>      
+      
+
+
+
+     <div class="footer">
+
+      
+      <a href="#" style="color:gray;"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a><span class="footer-text"><a href="/about">Contact Us</a></span><span class="footer-text"><a href="/feedback">Feedback / Suggestions</a></span><span class="footer-text-last"><a href="https://www.facebook.com/bitdeets" target="_blank">View us on Facebook</a></span>
+
+
+      <div class="footer-site-name">bitdeets.in</div>
+      <div class="share-like">
+        For updates like us on Facebook <div class="fb-like" data-href="https://www.facebook.com/bitdeets" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false" style="background-color:#101310; margin-left:10px;"></div><br>
+
+        <div class="links">
+
+        <a href="https://www.facebook.com/bitdeets" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Visit facebook page"><img src="/img/fb-base.png" width="8px" height="auto" class="fb"></a>
+
+        <span class="space20"></span>
+
+        <a href="https://twitter.com/thrEE_deSires" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Twitter link"><img src="/img/tw.png" width="30px" height="25px" class="tw"></a>
+
+        <span class="space20"></span>
+
+        <a target="_blank" data-toggle="tooltip" data-placement="bottom" title="contact@bitdeets.in" style="cursor:default;"><img src="/img/gm.png" width= "16px" height="16px" class="gm"></a>
+
+        <span class="space20"></span>
+
+        <a style="cursor:default;" target="_blank" data-toggle="tooltip" data-placement="bottom" title="+91 9693941136"><img src="/img/ph.png" width="17px" height="19px" class="ph"></a>
+
+        </div> 
+
+        <div class="copyright">&copy; BIT Deets<span class="rights">All Rights Reserved 2015</span></div> 
+      </div>
+      
+    </div>   
+      
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
+
+
+

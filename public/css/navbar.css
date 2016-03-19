@@ -1,0 +1,107 @@
+
+a, a:hover {
+	text-decoration: none;
+	
+	color: inherit;
+}
+
+.col-1 a{
+    text-decoration: none;
+    color: gray;
+}
+.col-1 a:hover{
+    color: #f1f1f1;
+    text-decoration: none;
+}
+.col-2 a:hover{
+    
+    text-decoration: none;
+}
+#navbar{
+	opacity: 0.95;
+}
+.navbar-brand img{
+	margin-top: -3px;
+	
+}
+.club-layout{
+	display: none;
+	padding-top: 15px;
+	text-align: left;
+	margin: 0px;
+	position: absolute;
+	width: 280px;
+    padding-bottom: 10px;
+}
+.dropdown:hover .club-layout{
+	display: block;
+	position: absolute;
+	
+	border-radius: 0px 0px 7px 7px;
+	background: rgba(0,0,0,0.85);
+}
+.col-1, .col-2{
+	display: inline;
+	margin-left: 5px;
+	margin-right: 5px;
+	float: left;
+	position: relative;
+	color: #f1f1f1;
+}
+.col-2 h5{
+	font-weight: bold;
+	margin-top: -5px;
+	color: gray;
+
+}
+.list-caption{
+	font-weight: normal;
+	font-size: 15px;
+	
+	color: #cc0000;
+	margin-top: 10px;
+	margin-bottom: 5px;
+	margin-left: 10px;
+	font-family: Arial;
+	text-shadow: 1px 1px 1px black;
+}
+.list-event-date{
+	font-size: 14px;
+    margin-top: 5px;
+    color: gray;
+    margin-left: 10px;
+}
+.event-list-body-cover{
+	max-height: 240px;
+	overflow: hidden;
+	overflow-y: scroll; 
+}
+.event-list-body:hover{
+	background-color: rgba(0,0,0,0.85);
+	border-radius: 10px;
+}
+.col-1 ul{
+	margin-left: 20px;
+	color: gray;
+}
+.col-1 li:hover{
+    color: #f1f1f1;
+}
+.col-1{
+	width: 130px;
+
+}
+.col-1-left{
+	border-right: 1px solid gray;
+}
+.col-2{
+	width: 270px;
+}
+.clear{
+	clear: both;
+	display: block;
+	overflow: hidden;
+	visibility: hidden;
+	width: 0px;
+	height: 0px;
+}

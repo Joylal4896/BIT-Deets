@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Club:</strong>
+  <%= @admin_update_executive_body.club %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @admin_update_executive_body.name %>
+</p>
+
+<p>
+  <strong>Role:</strong>
+  <%= @admin_update_executive_body.role %>
+</p>
+
+<p>
+  <strong>Role first char:</strong>
+  <%= @admin_update_executive_body.role_first_char %>
+</p>
+
+<p>
+  <strong>Fb link:</strong>
+  <%= @admin_update_executive_body.fb_link %>
+</p>
+
+<p>
+  <strong>Twitter link:</strong>
+  <%= @admin_update_executive_body.twitter_link %>
+</p>
+
+<p>
+  <strong>Contact:</strong>
+  <%= @admin_update_executive_body.contact %>
+</p>
+
+<%= link_to 'Edit', edit_admin_update_executive_body_path(@admin_update_executive_body) %> |
+<%= link_to 'Back', admin_update_executive_bodies_path %>
