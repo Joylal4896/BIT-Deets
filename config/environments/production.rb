@@ -25,14 +25,7 @@ Rails.application.configure do
   config.action_controller.perform_caching = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
-config.action_mailer.smtp_settings = {
-    address: 'email-smtp.us-east-1.amazonaws.com',
-    authentication: :login,
-    domain: 'bitdeets.in',
-    password: 'AvL4xGjADfYqmZkILDine4ciHcojiV0DmI/9ag3Mm3Jf',
-    port: 25,
-    user_name: 'AKIAJZU6K3WCTHGNW2SQ'
-  }  
+ 
 
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
   # Add `rack-cache` to your Gemfile before enabling this.
